@@ -1,14 +1,9 @@
 # mokalauver
 
-Posts and backups for the **Moka** account of [illitlauver](https://github.com/illitlauver/hub) — an ILLIT fan project in the style of Laufey's lauvers. *Fan account; not affiliated with ILLIT, BELIFT LAB, or Laufey.*
+Backup of [@mokalauver](https://www.instagram.com/mokalauver/), the **Moka** account of [illitlauver](https://github.com/illitlauver/hub) — ILLIT fan accounts with a Laufey theme. *Fan account; not affiliated with ILLIT, BELIFT LAB, or Laufey.*
 
-## Posting
+This repo fills itself: every hour, the hub's *Back up Instagram* action copies any new posts here.
 
-1. Add photos to a new folder under `posts/`, e.g. `posts/2026-10-09-concert/1.jpg`, `2.jpg`, …
-2. Commit them. **The commit message is the Instagram caption** (multiple lines and emoji are fine).
-3. Push to `main`. The *Post to Instagram* action posts it — one photo is a single post, 2–10 photos become a carousel in filename order.
-
-- Add `[skip post]` to the commit message to back up photos without posting.
-- Photos may be JPG, PNG, WEBP, or HEIC; they're converted to JPEG and location data is stripped.
-- Shape must be between 4:5 portrait and 1.91:1 landscape, or the post is rejected — crop first.
-- Results (and post links) appear in the action run's summary; the `bot` branch keeps the posted log.
+- **`posts/`** — photos and videos, named `YYYYMMDD-N.ext` (e.g. `20260504-1.jpg`, `20260504-2.jpg` for a 2-photo carousel). The date comes from the caption if it contains one (`260504`, `20260504`, `2026.05.04`, …), otherwise from the day it was posted (Taiwan time). N keeps counting if several posts share a date.
+- **Commit history** — one commit per post, with the caption as the commit message.
+- **`posts.json`** — every post's caption, Instagram link, post time, and files. Edited captions are updated here; posts deleted from Instagram stay in the backup.
